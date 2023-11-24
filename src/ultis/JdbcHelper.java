@@ -8,7 +8,7 @@ public class JdbcHelper {
     public static String dbName = "duAn1_cafe";
 
     public static String username = "sa";
-    public static String password = "123456";
+    public static String password = "123";
 
     public static String url = "jdbc:sqlserver://" + hostName + ";DatabaseName=" + dbName + ";encrypt=true;trustServerCertificate=true";
 
