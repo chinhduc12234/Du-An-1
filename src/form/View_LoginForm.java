@@ -4,10 +4,13 @@
  */
 package form;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import entity.NhanVien;
 import entity.SessionTaiKhoan;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import main.Main;
 import services.NhanVienService;
 
@@ -145,30 +148,30 @@ private boolean showPassword = false;
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
         if (!showPassword) {
-            
+
             jPasswordField1.setEchoChar('\0');
             showPassword = true;
         } else {
-            
+
             jPasswordField1.setEchoChar('*');
             showPassword = false;
         }
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         String email = jTextField1.getText().trim();
         String password = jPasswordField1.getText().trim();
-        
+
         if (email.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không được để trống!!!");
             return;
         }
-        
+
         NhanVienService nhanVienService = new NhanVienService();
-        
+
         List<NhanVien> list = nhanVienService.getAll();
-        
+
         for (NhanVien nhanVien : list) {
             if (nhanVien.getEmial().equals(email) && nhanVien.getMatKhau().equals(password)) {
                 SessionTaiKhoan.setNhanVien(nhanVien);
@@ -176,11 +179,11 @@ private boolean showPassword = false;
                 Main main = new Main();
                 main.setVisible(true);
                 main.setLocationRelativeTo(null);
-                
+
                 return;
             }
         }
-        
+
         JOptionPane.showMessageDialog(this, "Tài khoản hoặc mật khẩu không đúng!");
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -211,7 +214,11 @@ private boolean showPassword = false;
             java.util.logging.Logger.getLogger(View_LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (UnsupportedLookAndFeelException ex) {
+            System.err.println("Failed to initialize LaF");
+        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
