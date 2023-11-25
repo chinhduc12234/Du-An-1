@@ -8,11 +8,11 @@ import javax.mail.internet.*;
 public class EmailService {
 
     public static void sendEmail(String to, FormEmail formEmail) throws Exception {
-        String from = "namdinhnguyen1003@gmail.com";
+        String from = "udieuchinhduc@gmail.com";
         String host = "smtp.gmail.com";
         String port = "587";
-        String username = "namdinhnguyen1003@gmail.com";
-        String emailPassword = "hjukwnamcskqfknt";
+        String username = "udieuchinhduc@gmail.com";
+        String emailPassword = "akzcsvbrwtesowrh";
 
         // Create properties for the email session
         Properties properties = new Properties();

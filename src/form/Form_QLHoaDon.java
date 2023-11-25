@@ -336,7 +336,7 @@ public class Form_QLHoaDon extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String to = "namdinhnguyen1003@gmail.com";
+        String to = "udieuchinhduc@gmail.com";
         FormEmail formEmail = new FormEmail();
         formEmail.setMa(jTextField1.getText());
         formEmail.setHoTen(jTextField2.getText());
